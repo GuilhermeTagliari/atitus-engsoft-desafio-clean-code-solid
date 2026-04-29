@@ -1,16 +1,7 @@
-/**
- * ❌ OTIMIZAÇÃO O(n²) para O(n)
- */
+// O(n): constrói um Set de listaA em O(n), depois filtra listaB em O(m)
 function encontrarProdutosComuns(listaA, listaB) {
-  const comuns = [];
-  for (let i = 0; i < listaA.length; i++) {
-    for (let j = 0; j < listaB.length; j++) {
-      if (listaA[i] === listaB[j]) {
-        comuns.push(listaA[i]);
-      }
-    }
-  }
-  return comuns;
+  const setA = new Set(listaA);
+  return listaB.filter(item => setA.has(item));
 }
 
 module.exports = encontrarProdutosComuns;
